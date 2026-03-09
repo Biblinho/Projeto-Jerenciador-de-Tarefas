@@ -1,59 +1,100 @@
-Sistema Gerenciador de Tarefas
+# 📋 Sistema Gerenciador de Tarefas
 
-Este projeto é uma aplicação desktop desenvolvida em Java utilizando Java Swing para a interface gráfica e MySQL para persistência de dados. O sistema permite gerenciar usuários, tarefas e subtarefas, oferecendo uma forma simples de organizar atividades e acompanhar o progresso das tarefas.
+Aplicação desktop desenvolvida em **Java** com **Swing** e **MySQL**, criada para gerenciar tarefas e subtarefas de usuários.  
+O sistema permite organizar atividades, acompanhar progresso e gerenciar prioridades.
 
-Funcionalidades
+---
 
-Cadastro e autenticação de usuários
+## 🚀 Funcionalidades
 
-Criação, edição e exclusão de tarefas
+- Cadastro de usuários
+- Login com criptografia de senha (BCrypt)
+- Criação de tarefas
+- Edição e exclusão de tarefas
+- Gerenciamento de subtarefas
+- Definição de status e prioridade
+- Persistência de dados com MySQL
 
-Organização de tarefas por status e prioridade
+---
 
-Adição de subtarefas
+## 🛠 Tecnologias utilizadas
 
-Persistência de dados em banco de dados MySQL
+- **Java 17**
+- **Java Swing**
+- **JDBC**
+- **MySQL**
+- **Gradle**
+- **BCrypt**
 
-Interface gráfica construída com Java Swing
+---
 
-Tecnologias utilizadas
+## 📂 Estrutura do projeto
 
-Java 17
+ProjetoGerenciadorDeTarefa
+│
+├── controller
+│ └── AutenticacaoController.java
+│
+├── dao
+│ ├── Conexao.java
+│ └── UsuarioDAO.java
+│
+├── model
+│ ├── Usuario.java
+│ ├── Tarefa.java
+│ └── Subtarefa.java
+│
+└── view
+├── TelaLogin.java
+├── TelaCadastro.java
+└── TelaPrincipal.java
 
-Java Swing (Interface gráfica)
 
-JDBC (conexão com banco de dados)
+---
 
-MySQL
+## ⚙️ Configuração do banco de dados
 
-Gradle (gerenciamento de dependências)
+1️⃣ Criar banco:
 
-BCrypt (criptografia de senha)
+```sql
+CREATE DATABASE taskdb;
+2️⃣ Usar banco:
 
-Estrutura do projeto
+USE taskdb;
+3️⃣ Criar tabela de usuários:
 
-O projeto segue uma organização baseada em camadas para facilitar a manutenção:
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_usuario VARCHAR(100) NOT NULL UNIQUE,
+    senha_hash VARCHAR(255) NOT NULL,
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+▶ Como executar o projeto
+Clonar o repositório
 
-model → classes de entidades (Usuario, Tarefa, Subtarefa)
+git clone https://github.com/seuusuario/gerenciador-tarefas.git
+Abrir o projeto na IDE (IntelliJ / VSCode / Eclipse)
 
-dao → acesso ao banco de dados
+Configurar usuário e senha do MySQL na classe:
 
-controller → lógica da aplicação
+Conexao.java
+Executar a classe:
 
-view → interface gráfica (telas)
+TelaLogin.java
+📌 Objetivo do projeto
+Este projeto foi desenvolvido para praticar:
 
-Como executar o projeto
+Programação Orientada a Objetos (POO)
 
-Clone o repositório
+Arquitetura MVC
 
-Crie o banco de dados MySQL
+Conexão com banco de dados usando JDBC
 
-Execute o script SQL para criar as tabelas
+Desenvolvimento de interfaces com Java Swing
 
-Configure usuário e senha do banco na classe de conexão
+👨‍💻 Autor
+Desenvolvido por Roberson de Oliveira / Heitor Schafer Lima
 
-Execute a classe principal do projeto
+GitHub:
+https://github.com/Biblinho
 
-Objetivo
-
-Este projeto foi desenvolvido com o objetivo de praticar conceitos de programação orientada a objetos, arquitetura MVC, integração com banco de dados e desenvolvimento de interfaces gráficas em Java. ()
